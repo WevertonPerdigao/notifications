@@ -1,0 +1,1 @@
+[2021-05-26 15:17:12,371] INFO Got user-level KeeperException when processing sessionid:0x100000b9ea10000 type:setData cxid:0x108 zxid:0x91 txntype:-1 reqpath:n/a Error Path:/config/topics/ECOMMERCE_SEND_EMAIL Error:KeeperErrorCode = NoNode for /config/topics/ECOMMERCE_SEND_EMAIL (org.apache.zookeeper.server.PrepRequestProcessor)

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/angular-bootstrap-kafka-dashboard" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kafka-notifications" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kafka-project/reactivekafkaclient" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/kafka-project/reactivekafkaserver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/notifications" vcs="Git" />
+  </component>
+</project>
