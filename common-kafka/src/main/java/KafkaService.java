@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Pattern;
 
 public class KafkaService<T> implements Closeable {
@@ -38,7 +39,13 @@ public class KafkaService<T> implements Closeable {
             if (!records.isEmpty()) {
                 System.out.println("Encontrei " + records.count() + "  Registros");
                 for (var record : records) {
-                    this.parse.consume(record);
+                    try {
+                        this.parse.consume(record);
+                    } catch (Exception e) {
+                        //only catches Expception
+                        //so far, just logging the exception for this
+                        e.printStackTrace();
+                    }
                 }
 
             }

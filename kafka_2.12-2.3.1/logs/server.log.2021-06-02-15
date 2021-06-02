@@ -1,0 +1,1 @@
+[2021-06-02 15:13:20,831] INFO Got user-level KeeperException when processing sessionid:0x100014d2a350000 type:setData cxid:0xb7 zxid:0xa4 txntype:-1 reqpath:n/a Error Path:/config/topics/ECOMMERCE_ORDER_APPROVED Error:KeeperErrorCode = NoNode for /config/topics/ECOMMERCE_ORDER_APPROVED (org.apache.zookeeper.server.PrepRequestProcessor)

@@ -1,7 +1,10 @@
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.producer.KafkaProducer;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class FraudDetectorService {
 
@@ -20,8 +23,10 @@ public class FraudDetectorService {
 
     }
 
-    private void parse(ConsumerRecord<String, Order> record) {
-        System.out.println("__________________________________________");
+    private final KafkaDispatcherProducer<Order> kafkaDispatcherProducer = new KafkaDispatcherProducer<>();
+
+    private void parse(ConsumerRecord<String, Order> record) throws ExecutionException, InterruptedException {
+        System.out.println("*__________________________________________*");
         System.out.println("Processando new Order, fkekfçdk");
         System.out.println(record.key());
         System.out.println(record.value());
@@ -33,6 +38,22 @@ public class FraudDetectorService {
             e.printStackTrace();
 
         }
+
+        var order = record.value();
+
+        /* dectector de fraudes*/
+        if (isFraud(order)) {
+            System.out.println("Order is a fraud!!!" + order);
+            kafkaDispatcherProducer.send("ECOMMERCE_ORDER_REJECTED", order.getEmail(), order);
+        } else {
+            kafkaDispatcherProducer.send("ECOMMERCE_ORDER_APPROVED", order.getEmail(), order);
+        }
+
+
         System.out.println("Order processed");
+    }
+
+    private boolean isFraud(Order order) {
+        return order.getAmount().compareTo(new BigDecimal("4500")) >= 0;
     }
 }
