@@ -1,5 +1,3 @@
-import org.apache.kafka.clients.producer.*;
-import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.io.IOException;
 import java.math.BigDecimal;
